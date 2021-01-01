@@ -1,15 +1,12 @@
 /*++
 
 Module Name:
-
     driver.h
 
 Abstract:
-
     This file contains the driver definitions.
 
 Environment:
-
     User-mode Driver Framework 2
 
 --*/

@@ -1,15 +1,12 @@
 /*++
 
 Module Name:
-
     queue.c
 
 Abstract:
-
     This file contains the queue entry points and callbacks.
 
 Environment:
-
     User-mode Driver Framework 2
 
 --*/
@@ -20,11 +17,10 @@ Environment:
 NTSTATUS
 VirtualMonitorQueueInitialize(
     _In_ WDFDEVICE Device
-    )
+)
 /*++
 
 Routine Description:
-
      The I/O dispatch callbacks for the frameworks device object
      are configured in this function.
 
@@ -33,11 +29,9 @@ Routine Description:
      to hold our structure QUEUE_CONTEXT.
 
 Arguments:
-
     Device - Handle to a framework device object.
 
 Return Value:
-
     VOID
 
 --*/
@@ -85,11 +79,9 @@ VirtualMonitorEvtIoDeviceControl(
 /*++
 
 Routine Description:
-
     This event is invoked when the framework receives IRP_MJ_DEVICE_CONTROL request.
 
 Arguments:
-
     Queue -  Handle to the framework queue object that is associated with the
              I/O request.
 
@@ -102,7 +94,6 @@ Arguments:
     IoControlCode - I/O control code.
 
 Return Value:
-
     VOID
 
 --*/
@@ -126,11 +117,9 @@ VirtualMonitorEvtIoStop(
 /*++
 
 Routine Description:
-
     This event is invoked for a power-managed queue before the device leaves the working state (D0).
 
 Arguments:
-
     Queue -  Handle to the framework queue object that is associated with the
              I/O request.
 
@@ -141,7 +130,6 @@ Arguments:
                   and whether the request is cancelable.
 
 Return Value:
-
     VOID
 
 --*/

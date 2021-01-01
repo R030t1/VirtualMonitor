@@ -1,15 +1,12 @@
 /*++
 
 Module Name:
-
     device.c - Device handling events for example driver.
 
 Abstract:
-
    This file contains the device entry points and callbacks.
     
 Environment:
-
     User-mode Driver Framework 2
 
 --*/
@@ -20,7 +17,7 @@ Environment:
 NTSTATUS
 VirtualMonitorCreateDevice(
     _Inout_ PWDFDEVICE_INIT DeviceInit
-    )
+)
 /*++
 
 Routine Description:

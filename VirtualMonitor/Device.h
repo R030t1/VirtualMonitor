@@ -1,15 +1,12 @@
 /*++
 
 Module Name:
-
     device.h
 
 Abstract:
-
     This file contains the device definitions.
 
 Environment:
-
     User-mode Driver Framework 2
 
 --*/
@@ -41,6 +38,6 @@ WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(DEVICE_CONTEXT, DeviceGetContext)
 NTSTATUS
 VirtualMonitorCreateDevice(
     _Inout_ PWDFDEVICE_INIT DeviceInit
-    );
+);
 
 EXTERN_C_END

@@ -1,15 +1,12 @@
 /*++
 
 Module Name:
-
     queue.h
 
 Abstract:
-
     This file contains the queue definitions.
 
 Environment:
-
     User-mode Driver Framework 2
 
 --*/
@@ -31,7 +28,7 @@ WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(QUEUE_CONTEXT, QueueGetContext)
 NTSTATUS
 VirtualMonitorQueueInitialize(
     _In_ WDFDEVICE Device
-    );
+);
 
 //
 // Events from the IoQueue object

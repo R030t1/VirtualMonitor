@@ -1,15 +1,12 @@
 /*++
 
 Module Name:
-
     driver.c
 
 Abstract:
-
     This file contains the driver entry points and callbacks.
 
 Environment:
-
     User-mode Driver Framework 2
 
 --*/
@@ -21,7 +18,7 @@ NTSTATUS
 DriverEntry(
     _In_ PDRIVER_OBJECT  DriverObject,
     _In_ PUNICODE_STRING RegistryPath
-    )
+)
 /*++
 
 Routine Description:
@@ -100,22 +97,20 @@ NTSTATUS
 VirtualMonitorEvtDeviceAdd(
     _In_    WDFDRIVER       Driver,
     _Inout_ PWDFDEVICE_INIT DeviceInit
-    )
+)
 /*++
-Routine Description:
 
+Routine Description:
     EvtDeviceAdd is called by the framework in response to AddDevice
     call from the PnP manager. We create and initialize a device object to
     represent a new instance of the device.
 
 Arguments:
-
     Driver - Handle to a framework driver object created in DriverEntry
 
     DeviceInit - Pointer to a framework-allocated WDFDEVICE_INIT structure.
 
 Return Value:
-
     NTSTATUS
 
 --*/
@@ -136,18 +131,16 @@ Return Value:
 VOID
 VirtualMonitorEvtDriverContextCleanup(
     _In_ WDFOBJECT DriverObject
-    )
+)
 /*++
-Routine Description:
 
+Routine Description:
     Free all the resources allocated in DriverEntry.
 
 Arguments:
-
     DriverObject - handle to a WDF Driver object.
 
 Return Value:
-
     VOID.
 
 --*/

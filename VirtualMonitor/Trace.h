@@ -1,16 +1,13 @@
 /*++
 
 Module Name:
-
     Internal.h
 
 Abstract:
-
     This module contains the local type definitions for the
     driver.
 
 Environment:
-
     Windows User-Mode Driver Framework 2
 
 --*/
@@ -23,7 +20,7 @@ Environment:
 
 #define WPP_CONTROL_GUIDS                                              \
     WPP_DEFINE_CONTROL_GUID(                                           \
-        MyDriver1TraceGuid, (5b662a1a,4054,4a62,91ef,4dbab4dbfc3b),                  \
+        MyDriver1TraceGuid, (5b662a1a,4054,4a62,91ef,4dbab4dbfc3b),    \
                                                                        \
         WPP_DEFINE_BIT(MYDRIVER_ALL_INFO)                              \
         WPP_DEFINE_BIT(TRACE_DRIVER)                                   \
