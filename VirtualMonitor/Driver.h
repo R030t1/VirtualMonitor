@@ -11,9 +11,19 @@ Environment:
 
 --*/
 
+#define NOMINMAX
 #include <windows.h>
-#include <wdf.h>
 #include <initguid.h>
+#include <bugcodes.h>
+
+#include <wdf.h>
+#include <wudfwdm.h>
+#include <iddcx.h>
+
+#include <dxgi1_5.h>
+#include <d3d11_2.h>
+#include <avrt.h>
+#include <wrl.h>
 
 #include "device.h"
 #include "queue.h"
@@ -21,10 +31,7 @@ Environment:
 
 EXTERN_C_START
 
-//
 // WDFDRIVER Events
-//
-
 DRIVER_INITIALIZE DriverEntry;
 EVT_WDF_DRIVER_DEVICE_ADD VirtualMonitorEvtDeviceAdd;
 EVT_WDF_OBJECT_CONTEXT_CLEANUP VirtualMonitorEvtDriverContextCleanup;

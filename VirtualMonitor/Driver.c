@@ -113,6 +113,9 @@ Return Value:
 {
     UNREFERENCED_PARAMETER(Driver);
     NTSTATUS status;
+    //WDF_PNPPOWER_EVENT_CALLBACKS PnpCallbacks;
+
+
 
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Entry");
     status = VirtualMonitorCreateDevice(DeviceInit);
@@ -148,4 +151,18 @@ Return Value:
 #else
     WPP_CLEANUP(WdfDriverWdmGetDriverObject((WDFDRIVER)DriverObject));
 #endif
+}
+
+NTSTATUS
+VirtualMonitorDeviceD0Entry(
+    WDFDEVICE Device,
+    WDF_POWER_DEVICE_STATE PreviousState
+) {
+    UNREFERENCED_PARAMETER(Device);
+    UNREFERENCED_PARAMETER(PreviousState);
+
+    //auto* ctx = WdfObjectGet_IndirectDeviceContextWrapper(Device);
+    //ctx->pContext->InitAdapter();
+    
+    return STATUS_SUCCESS;
 }

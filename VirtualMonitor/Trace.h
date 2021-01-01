@@ -35,7 +35,7 @@ Environment:
     (WPP_LEVEL_ENABLED(flag) &&                                        \
      WPP_CONTROL(WPP_BIT_ ## flag).Level >= level)
 
-#define WPP_LEVEL_FLAGS_LOGGER(lvl,flags)                              \
+#define WPP_LEVEL_FLAGS_LOGGER(lvl, flags)                              \
            WPP_LEVEL_LOGGER(flags)
                
 #define WPP_LEVEL_FLAGS_ENABLED(lvl, flags)                            \
@@ -51,5 +51,5 @@ Environment:
 
 // Driver specific #defines
 #if UMDF_VERSION_MAJOR == 2 && UMDF_VERSION_MINOR == 0
-    #define MYDRIVER_TRACING_ID      L"Microsoft\\UMDF2.0\\VirtualMonitor V1.0"
+    #define VIRTUALMONITOR_TRACING_ID      L"Microsoft\\UMDF2.0\\VirtualMonitor V1.0"
 #endif
