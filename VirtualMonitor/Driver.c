@@ -27,7 +27,6 @@ Routine Description:
     points in the function driver, such as EvtDevice and DriverUnload.
 
 Parameters Description:
-
     DriverObject - represents the instance of the function driver that is loaded
     into memory. DriverEntry must initialize members of DriverObject before it
     returns to the caller. DriverObject is allocated by the system before the
@@ -39,19 +38,16 @@ Parameters Description:
     reboots. The path does not store hardware instance specific data.
 
 Return Value:
-
     STATUS_SUCCESS if successful,
     STATUS_UNSUCCESSFUL otherwise.
 
 --*/
 {
-    WDF_DRIVER_CONFIG config;
     NTSTATUS status;
+    WDF_DRIVER_CONFIG config;
     WDF_OBJECT_ATTRIBUTES attributes;
 
-    //
     // Initialize WPP Tracing
-    //
 #if UMDF_VERSION_MAJOR == 2 && UMDF_VERSION_MINOR == 0
     WPP_INIT_TRACING(MYDRIVER_TRACING_ID);
 #else
@@ -60,23 +56,23 @@ Return Value:
 
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Entry");
 
-    //
     // Register a cleanup callback so that we can call WPP_CLEANUP when
     // the framework driver object is deleted during driver unload.
-    //
     WDF_OBJECT_ATTRIBUTES_INIT(&attributes);
     attributes.EvtCleanupCallback = VirtualMonitorEvtDriverContextCleanup;
 
-    WDF_DRIVER_CONFIG_INIT(&config,
-                           VirtualMonitorEvtDeviceAdd
-                           );
+    WDF_DRIVER_CONFIG_INIT(
+        &config,
+        VirtualMonitorEvtDeviceAdd
+    );
 
-    status = WdfDriverCreate(DriverObject,
-                             RegistryPath,
-                             &attributes,
-                             &config,
-                             WDF_NO_HANDLE
-                             );
+    status = WdfDriverCreate(
+        DriverObject,
+        RegistryPath,
+        &attributes,
+        &config,
+        WDF_NO_HANDLE
+    );
 
     if (!NT_SUCCESS(status)) {
         TraceEvents(TRACE_LEVEL_ERROR, TRACE_DRIVER, "WdfDriverCreate failed %!STATUS!", status);
@@ -115,14 +111,11 @@ Return Value:
 
 --*/
 {
+    UNREFERENCED_PARAMETER(Driver);
     NTSTATUS status;
 
-    UNREFERENCED_PARAMETER(Driver);
-
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Entry");
-
     status = VirtualMonitorCreateDevice(DeviceInit);
-
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Exit");
 
     return status;
@@ -141,7 +134,7 @@ Arguments:
     DriverObject - handle to a WDF Driver object.
 
 Return Value:
-    VOID.
+    VOID
 
 --*/
 {
@@ -149,9 +142,7 @@ Return Value:
 
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Entry");
 
-    //
     // Stop WPP Tracing
-    //
 #if UMDF_VERSION_MAJOR == 2 && UMDF_VERSION_MINOR == 0
     WPP_CLEANUP();
 #else
