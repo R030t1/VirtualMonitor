@@ -41,7 +41,6 @@ Environment:
 #define WPP_LEVEL_FLAGS_ENABLED(lvl, flags)                            \
            (WPP_LEVEL_ENABLED(flags) && WPP_CONTROL(WPP_BIT_ ## flags).Level >= lvl)
 
-//
 // This comment block is scanned by the trace preprocessor to define our
 // Trace function.
 //
@@ -50,10 +49,7 @@ Environment:
 // FUNC TraceEvents(LEVEL, FLAGS, MSG, ...);
 // end_wpp
 
-//
-//
 // Driver specific #defines
-//
 #if UMDF_VERSION_MAJOR == 2 && UMDF_VERSION_MINOR == 0
     #define MYDRIVER_TRACING_ID      L"Microsoft\\UMDF2.0\\VirtualMonitor V1.0"
 #endif
